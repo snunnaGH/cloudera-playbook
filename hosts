@@ -1,0 +1,37 @@
+[scm_server]
+cdpcluster.infoftps.com
+
+[db_server]
+cdpcluster.infoftps.com
+
+[krb5_server]
+cdpcluster.infoftps.com
+
+[utility_servers:children]
+scm_server
+db_server
+krb5_server
+
+[gateway_servers]
+cdpcluster.infoftps.com        host_template=HostTemplate-Gateway
+
+[edge_servers]
+cdpcluster.infoftps.com        host_template=HostTemplate-Edge
+
+[master_servers]
+cdpcluster.infoftps.com        host_template=HostTemplate-Master
+
+[worker_servers]
+cdpcluster.infoftps.com
+
+[worker_servers:vars]
+host_template=HostTemplate-Workers
+
+[cdh_servers:children]
+utility_servers
+gateway_servers
+master_servers
+worker_servers
+
+[all:vars]
+ansible_user=root
