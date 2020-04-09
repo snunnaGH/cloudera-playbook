@@ -1,6 +1,7 @@
 # Cloudera Playbook 
 # Propose change test
 
+#My Change SN
 An Ansible Playbook that installs the Cloudera stack on RHEL/CentOS
 
 ## Running the playbook
